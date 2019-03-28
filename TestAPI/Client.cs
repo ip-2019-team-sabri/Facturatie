@@ -15,12 +15,12 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "POST";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"id\":\"103\",\"name\":\"Brol3\"," +
-                    "\"contact\":{\"first_name\":\"brol2\",\"last_name\":\"brol3\",\"email\":\"lena.maas@student.ehb.be\"}}";
+                string json = "{\"id\":\"1\",\"name\":\"Eggher\"," +
+                    "\"contact\":{\"first_name\":\"rhani\",\"last_name\":\"egghe\",\"email\":\"rhani.egghe@student.ehb.be\"}}";
                 streamWriter.Write(json);
             }
             var response = (HttpWebResponse)request.GetResponse();
@@ -36,7 +36,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "GET";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
@@ -53,7 +53,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "GET";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
@@ -70,7 +70,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "PUT";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
@@ -91,7 +91,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "PUT";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
@@ -106,7 +106,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "PUT";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
@@ -121,7 +121,7 @@ namespace TestAPI
 
             request.ContentType = "application/json";
             request.Method = "PUT";
-            request.Headers.Add("X-Ninja-Token", "tgbtqob1pvsizhmoc9i5foinrpe1chdr");
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
