@@ -11,8 +11,8 @@ namespace TestAPI
         {
             Logic l1 = new Logic();
             //Task task1 = l1.CreateClient();
-            //Task task1 = l1.GetClient(102);
-            Task task1 = l1.GetClients();
+            Task task1 = l1.GetClient(102);
+            //Task task1 = l1.GetClients();
             //Task task1 = l1.UpdateClient(102);
             //Task task1 = l1.ArchiveClient(102);
             //Task task1 = l1.DeleteClient(102);
