@@ -9,14 +9,13 @@ namespace TestAPI
     {
         public static void Main()
         {
-            Logic l1 = new Logic();
-            Task task1 = l1.CreateClient();
-            //Task task1 = l1.GetClient(102);
-            //Task task1 = l1.GetClients();
-            //Task task1 = l1.UpdateClient(102);
-            //Task task1 = l1.ArchiveClient(102);
-            //Task task1 = l1.DeleteClient(102);
-            //Task task1 = l1.RestoreClient(102);
+            var cl = new Client();
+            var cr = new Credit();
+            var doc = new Document();
+            var inv = new Invoice();
+            var pay = new Payment();
+            var pro = new Product();
+            var tax = new Tax_rate();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestAPI
 {
-    class Logic
+    class Client
     {
         public async System.Threading.Tasks.Task CreateClient()
         {
@@ -19,8 +19,8 @@ namespace TestAPI
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"id\":\"1\",\"name\":\"Eggher\"," +
-                    "\"contact\":{\"first_name\":\"rhani\",\"last_name\":\"egghe\",\"email\":\"rhani.egghe@student.ehb.be\"}}";
+                string json = "{\"id\":\"1\",\"name\":\"Freestyle\"," +
+                    "\"contact\":{\"first_name\":\"Tim\",\"last_name\":\"Van den Borre\",\"email\":\"tim.van.den.borre@student.ehb.be\"}}";
                 streamWriter.Write(json);
             }
             var response = (HttpWebResponse)request.GetResponse();
@@ -129,7 +129,5 @@ namespace TestAPI
                 var result = streamReader.ReadToEnd();
             }
         }
-
-      
     }
 }

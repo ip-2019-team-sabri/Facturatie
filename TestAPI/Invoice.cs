@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestAPI
 {
-
-    class invoice
+    class Invoice
     {
         public async System.Threading.Tasks.Task CreateInvoice(int id)
         {
@@ -105,6 +104,5 @@ namespace TestAPI
                 var result = streamReader.ReadToEnd();
             }
         }
-
     }
 }

@@ -47,6 +47,23 @@ namespace TestAPI
             }
         }
 
+        public async System.Threading.Tasks.Task GetCredits()
+        {
+            var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/credits/");
+
+            request.ContentType = "application/json";
+            request.Method = "GET";
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
+
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine(result);
+                Console.ReadLine();
+            }
+        }
+
         public async System.Threading.Tasks.Task UpdateCredit(int id)
         {
             var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/credits/{id}");

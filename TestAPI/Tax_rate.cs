@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace TestAPI
 {
-    class Documents
+    class Tax_rate
     {
-        public async System.Threading.Tasks.Task CreateDocument()
+        public async System.Threading.Tasks.Task CreateTaxrate()
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://10.3.56.3/api/v1/documents");
+            var request = (HttpWebRequest)WebRequest.Create("http://10.3.56.3/api/v1/tax_rates");
 
             request.ContentType = "application/json";
             request.Method = "POST";
@@ -19,9 +19,14 @@ namespace TestAPI
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                //AAN TE PASSEN NOG
-                string json = "{\"id\":\"103\",\"name\":\"Brol3\"," +
-                    "\"contact\":{\"first_name\":\"brol2\",\"last_name\":\"brol3\",\"email\":\"lena.maas@student.ehb.be\"}}";
+                string json = "{" +
+                    "\"id\":\"1\"," +
+                    "\"name\":\"GST\"," +
+                    "\"account_key\":\"accountkeytest\"," +
+                    "\"rate\":\"17.5\"," +
+                    "\"updated_at\":\"2016-01-01 12:10:00\"," +
+                    "\"archived_at\":\"2016-01-01 12:10:00\"," +
+                    "}";
                 streamWriter.Write(json);
             }
             var response = (HttpWebResponse)request.GetResponse();
@@ -31,9 +36,9 @@ namespace TestAPI
             }
         }
 
-        public async System.Threading.Tasks.Task GetDocument(int id)
+        public async System.Threading.Tasks.Task GetTaxrates()
         {
-            var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/documents/{id}");
+            var request = (HttpWebRequest)WebRequest.Create($"http://http://10.3.56.3/api/v1/tax_rates/");
 
             request.ContentType = "application/json";
             request.Method = "GET";
@@ -48,20 +53,24 @@ namespace TestAPI
             }
         }
 
-        public async System.Threading.Tasks.Task GetDocumentss()
+        public async System.Threading.Tasks.Task UpdateTax(int id)
         {
-            var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/documents/");
+            var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/tax_rates/{id}");
 
             request.ContentType = "application/json";
-            request.Method = "GET";
+            request.Method = "PUT";
             request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = "{\"id\":\"taxchange\",\"name\":\"GST2\"}";
+                streamWriter.Write(json);
+            }
 
             var response = (HttpWebResponse)request.GetResponse();
             using (var streamReader = new StreamReader(response.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine(result);
-                Console.ReadLine();
             }
         }
     }
