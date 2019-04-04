@@ -19,7 +19,7 @@ namespace TestAPI
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"client_id\": \"" + id + "\", \"discount\": \"0\", \"due_date\": \"2020-05-12\", \"invoice_items\":[{\"id\": \"1\", \"product_key\": \"test\", \"cost\": \"12\", \"qty\": \"15\"}]}";
+                string json = "{\"client_id\": \"" + id + "\", \"discount\": \"0\", \"due_date\": \"2020-05-12\", \"invoice_items\":[{\"id\": \"222\", \"product_key\": \"test\", \"cost\": \"12\", \"qty\": \"15\"}]}";
 
                 streamWriter.Write(json);
             }
@@ -47,6 +47,23 @@ namespace TestAPI
             }
         }
 
+        public async System.Threading.Tasks.Task GetInvoices()
+        {
+            var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/invoices/");
+
+            request.ContentType = "application/json";
+            request.Method = "GET";
+            request.Headers.Add("X-Ninja-Token", "dmgzavwittk5tfvpfqljtdoosvts2psh");
+
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine(result);
+                Console.ReadLine();
+            }
+        }
+
         public async System.Threading.Tasks.Task UpdateInvoice(int id)
         {
             var request = (HttpWebRequest)WebRequest.Create($"http://10.3.56.3/api/v1/invoices/{id}");
@@ -57,7 +74,9 @@ namespace TestAPI
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"id\": \"" + id + "\", \"discount\": \"0\", \"due_date\": \"2019-05-12\", \"invoice_items\":[{\"id\": \"1\", \"product_key\": \"test\", \"cost\": \"12\", \"qty\": \"15\"}]}";
+                string json = "{\"client_id\": \"" + id + "\", \"discount\": \"0\", \"due_date\": \"2020-05-12\", " +
+                    "\"invoice_items\":[{\"account_key\": \"oxdyllwo7ofqrwxbxw2ieyggjriuu0ug\",\"id\": \"5\", \"product_key\": \"test\", \"cost\": \"1\", \"qty\": \"1\"}],";
+
 
                 streamWriter.Write(json);
             }

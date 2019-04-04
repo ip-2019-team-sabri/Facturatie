@@ -16,6 +16,11 @@ namespace TestAPI
             var pay = new Payment();
             var pro = new Product();
             var tax = new Tax_rate();
+
+            // Task t2 = inv.GetInvoice(3);
+            //Task t3 = inv.CreateInvoice(3);
+           // Console.ReadKey();
+           Task t = inv.UpdateInvoice(3); 
         }
     }
 }
