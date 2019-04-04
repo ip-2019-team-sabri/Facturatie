@@ -74,8 +74,9 @@ namespace TestAPI
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"client_id\": \"" + id + "\", \"discount\": \"0\", \"due_date\": \"2020-05-12\", " +
-                    "\"invoice_items\":[{\"account_key\": \"oxdyllwo7ofqrwxbxw2ieyggjriuu0ug\",\"id\": \"5\", \"product_key\": \"test\", \"cost\": \"1\", \"qty\": \"1\"}],";
+                string json = "{\"id\": \"{id}\",\"client_id\": : \"3\",, \"discount\": \"0\", \"due_date\": \"2020-05-12\", " +
+                    "\"invoice_items\":[{\"account_key\": \"oxdyllwo7ofqrwxbxw2ieyggjriuu0ug\",\"id\": \"5\", \"product_key\": \"test\", \"cost\": \"1\", \"qty\": \"10\"}," +
+                    "{\"account_key\": \"oxdyllwo7ofqrwxbxw2ieyggjriuu0ug\",\"id\": \"6\", \"product_key\": \"test\", \"cost\": \"1\", \"qty\": \"1\"}],";
 
 
                 streamWriter.Write(json);
